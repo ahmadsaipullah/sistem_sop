@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -19,9 +20,16 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'nip',
         'email',
         'password',
+        'level_id',
+        'cabang_id',
+        'no_hp',
+        'gender',
+        'image'
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -40,5 +48,19 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
+
+    public function Level()
+    {
+        return $this->belongsTo(Level::class, 'level_id', 'id');
+    }
+
+    public function Cabang()
+    {
+        return $this->belongsTo(Cabang::class, 'cabang_id', 'id');
+    }
+
+
+
 }

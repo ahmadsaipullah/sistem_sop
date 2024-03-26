@@ -15,7 +15,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('assets/img/logoft.png') }}" alt="logo">
+            <img class="animation__shake" src="{{ asset('assets/img/logoft.png') }}" alt="logo" width="80px">
         </div>
 
         <div class="mb-4 pb-4">

@@ -14,7 +14,7 @@ class levelSeeder extends Seeder
     public function run(): void
     {
        Level::Create( [
-           'level' => 'Administrator',
+           'level' => 'Admin Super',
         ]);
 
        Level::Create( [
@@ -23,6 +23,14 @@ class levelSeeder extends Seeder
 
        Level::Create( [
             'level' => 'Sales'
+        ]);
+
+       Level::Create( [
+        'level' => 'Administrator Head',
+        ]);
+
+       Level::Create( [
+        'level' => 'Kepala Bengkel',
         ]);
     }
 }

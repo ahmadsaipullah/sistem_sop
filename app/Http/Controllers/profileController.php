@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules\Password;
 use App\Models\User;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -26,14 +23,13 @@ class profileController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'nim' => ['required', 'string', 'max:10', 'unique:users,nim,' . $id],
+            'nip' => ['required', 'string', 'max:10', 'unique:users,nip,' . $id],
             'no_hp' => ['required', 'string', 'max:13'],
             'email' => ['required', 'string', 'lowercase', 'email:dns', 'max:255', 'unique:users,email,' . $id],
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
 
+
         ]);
-
-
 
         $profile = User::findOrFail($id);
         $dataId = $profile->find($profile->id);
@@ -50,7 +46,7 @@ class profileController extends Controller
         } else {
             toast('Data Gagal Diupdate', 'error');
         }
-        return back();
+        return redirect()->route('profile.index', encrypt(auth()->user()->id));
     }
 
     public function updatePassword(Request $request)
@@ -67,12 +63,11 @@ class profileController extends Controller
             $user->update([
                 'password' => password_hash($request->input('password'), PASSWORD_DEFAULT)
             ]);
-
             toast('Password berhasil diupdate', 'success');
         } else {
             toast('Password saat ini tidak sesuai', 'error');
         }
 
-        return redirect()->route('profile.index');
+        return redirect()->route('profile.index', encrypt(auth()->user()->id));
     }
 }

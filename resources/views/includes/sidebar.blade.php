@@ -38,14 +38,27 @@
                     <p> Dashboard</p>
                 </a>
             </li>
-            <li class="nav-header">PRODI</li>
+            <li class="nav-header">Admin</li>
             <li class="nav-item">
                 <a href="{{ route('admin.index') }}" class="nav-link @yield('admin')">
                     <i class="nav-icon ion ion-person-add"></i>
                     <p>Admin
                     </p>
                 </a>
+            <li class="nav-header">Jobs Description</li>
+            <li class="nav-item">
+                <a href="#" class="nav-link @yield('job')">
+                    <i class="nav-icon ion ion-edit"></i>
+                    <p>Main Jobs
+                    </p>
+                </a>
 
+            <li class="nav-item">
+                <a href="#" class="nav-link @yield('job')">
+                    <i class="nav-icon ion ion-document-text"></i>
+                    <p>Relate Jobs
+                    </p>
+                </a>
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

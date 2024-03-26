@@ -53,6 +53,9 @@
                                         <b>Cabang :</b> <a class="float-right">{{ auth()->user()->Cabang->cabang }}</a>
                                     </li>
                                     <li class="list-group-item">
+                                        <b>Jabatan :</b> <a class="float-right">{{ auth()->user()->Level->level }}</a>
+                                    </li>
+                                    <li class="list-group-item">
                                         <b>Date Account :</b> <a class="float-right">{{ auth()->user()->created_at->isoformat('DD MMMM Y') }}</a>
                                     </li>
 
@@ -180,17 +183,6 @@
                           @enderror" id="email" name="email" value="{{old('email') ?? $profile->email}}" readonly >
                         </div>
                         @error('email')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
-                      </div>
-                    <div class="form-group row">
-                        <label for="text" class="col-sm-4 col-form-label">Cabang</label>
-                        <div class="col-sm-8">
-                          <input type="cabang_id" class="form-control @error('cabang_id') is invalid
-
-                          @enderror" id="cabang_id" name="cabang_id" value="{{old('cabang_id') ?? $profile->Cabang->cabang}}" readonly >
-                        </div>
-                        @error('cabang_id')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
                       </div>

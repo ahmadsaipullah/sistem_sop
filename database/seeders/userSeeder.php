@@ -15,7 +15,7 @@ class userSeeder extends Seeder
     public function run(): void
     {
         User::Create( [
-            'name' => 'Administrator',
+            'name' => 'Admin Super',
             'email' => 'admin@gmail.com',
             'nip' => '111111',
             'no_hp' => '087880182823',
@@ -46,5 +46,29 @@ class userSeeder extends Seeder
             'gender' => 'pria',
             'password' => Hash::make(123456789),
 
-        ]);}
+        ]);
+
+        User::Create( [
+            'name' => 'Administrator',
+            'email' => 'administrator.com',
+            'nip' => '444444',
+            'no_hp' => '087880182823',
+            'level_id' => '4',
+            'cabang_id' => '1',
+            'gender' => 'pria',
+            'password' => Hash::make(123456789),
+        ]);
+
+        User::Create( [
+            'name' => 'Kepala Bengkel',
+            'email' => 'kepalabengkel.com',
+            'nip' => '555555',
+            'no_hp' => '087880182823',
+            'level_id' => '5',
+            'cabang_id' => '2',
+            'gender' => 'pria',
+            'password' => Hash::make(123456789),
+        ]);
+
+    }
 }

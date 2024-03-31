@@ -21,7 +21,7 @@
         </div>
         <!-- /.content-header -->
       <div class="container-fluid">
-        <div class="alert alert-primary" role="alert">
+        <div class="alert alert-success" role="alert">
             Selamat datang, <b class="text-dark"><i>{{auth()->user()->name}}</i></b>! Berikut adalah panduan kerja yang disesuaikan untuk Anda.
           </div>
           <div class="row mb-4">

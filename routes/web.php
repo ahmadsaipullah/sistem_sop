@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\Admin\{adminController,dashboardController};
-
+use App\Http\Controllers\cabangController;
+use App\Http\Controllers\jobController;
+use App\Http\Controllers\relateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,14 +34,19 @@ Route::put('/profile/{id}' ,[profileController::class, 'update'])->name('profile
 
 
 
-
+Route::middleware(['cekLevel'])->group( function(){
 
 // crud admin
 Route::resource('/admin', adminController::class);
+// crud cabang
+Route::resource('cabang', cabangController::class);
 
+});
 
-
-
+// job
+Route::resource('job', jobController::class);
+// relate
+Route::resource('relate', relateController::class);
 
 
 });

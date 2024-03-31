@@ -121,28 +121,17 @@
     });
 </script>
 {{-- end delete sweet alert --}}
+    <!-- Move the TinyMCE initialization script here -->
+    <script src="https://cdn.tiny.cloud/1/16ezd6vj9zq9tqh88adsgwhu85vhfcy06xs4hckbq8v81a7n/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#summernote',
+            plugins: 'advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount',
+            toolbar: 'undo redo | formatselect | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help',
+            content_css: '//www.tiny.cloud/css/codepen.min.css',
+        });
+    </script>
 
-<!-- Summernote -->
-<script src="{{ asset('assets/plugins/summernote/summernote-bs4.min.js') }}"></script>
-<!-- CodeMirror -->
-<script src="{{ asset('assets/plugins/codemirror/codemirror.js') }}"></script>
-<script src="{{ asset('assets/plugins/codemirror/mode/css/css.js') }}"></script>
-<script src="{{ asset('assets/plugins/codemirror/mode/xml/xml.js') }}"></script>
-<script src="{{ asset('assets/plugins/codemirror/mode/htmlmixed/htmlmixed.js') }}"></script>
-<!-- Page specific script -->
-
-<script>
-    // Summernote
-    $('#summernote').summernote({
-        height: 250 // Tentukan tinggi Summernote
-    });
-
-    // CodeMirror
-    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-        mode: "htmlmixed",
-        theme: "monokai",
-        lineNumbers: true,
-        lineWrapping: true,
-        height: "250px" // Tentukan tinggi CodeMirror
-    });
-</script>

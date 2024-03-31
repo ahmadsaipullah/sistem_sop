@@ -17,4 +17,11 @@ class Cabang extends Model
         return $this->hasMany(User::class, 'cabang_id', 'id');
 
     }
+    public function Job()
+    {
+        return $this->hasMany(Job::class, 'cabang_id', 'id');
+
+    }
+
+
 }

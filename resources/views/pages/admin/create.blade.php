@@ -24,11 +24,11 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="nip">nip / NIDN</label>
+                            <label for="nip">Nip</label>
                             <input type="number" class="form-control @error('nip') is invalid
 
               @enderror"
-                                id="nip" name="nip" placeholder="nip / Nidn" value="{{old('nip')}}" required/>
+                                id="nip" name="nip" placeholder="Nip" value="{{old('nip')}}" required/>
                             @error('nip')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror

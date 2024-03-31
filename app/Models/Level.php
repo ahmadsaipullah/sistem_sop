@@ -17,4 +17,14 @@ class Level extends Model
         return $this->hasMany(User::class, 'level_id', 'id');
 
     }
+
+    public function Jabatan()
+    {
+        return $this->hasMany(Job::class, 'jabatan_id', 'id');
+    }
+
+    public function Relate()
+    {
+        return $this->hasMany(Job::class, 'relate_id', 'id');
+    }
 }

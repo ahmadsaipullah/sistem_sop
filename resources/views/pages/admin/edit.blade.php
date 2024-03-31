@@ -96,8 +96,8 @@
                         <div class="form-group">
                             <label for="image">Image</label>
                                    @if ($admin->image)
-                                                        <img src="{{Storage::url($admin->image)}}" alt="gambar" width="120px"
-                                                            class="tumbnail img-fluid rounded-circle">
+                                   <img src="{{ Storage::url($admin->image) }}" alt="gambar"
+                                   width="120px" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;" class="img-fluid">
                                                     @else
                                                         <img alt="image" class="img-fluid tumbnail"
                                                             src="{{ asset('assets/img/user_default.png') }}" width="120px"

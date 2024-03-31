@@ -25,7 +25,7 @@
    <link rel="stylesheet" href="{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
 
   <!-- summernote -->
-  <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.min.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <!-- CodeMirror -->
     <link rel="stylesheet" href="{{asset('assets/plugins/codemirror/codemirror.css')}}">
     <link rel="stylesheet" href="{{asset('assets/plugins/codemirror/theme/monokai.css')}}">

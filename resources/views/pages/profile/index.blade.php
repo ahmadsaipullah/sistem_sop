@@ -30,7 +30,8 @@
                             <div class="card-body box-profile">
                                 <div class="text-center">
                                     @if (Auth()->user()->image)
-                                    <img class="profile-user-img img-fluid img-circle" src="{{ Storage::url(Auth()->user()->image) }}" alt="User profile picture">
+                                    <img src="{{ Storage::url(Auth()->user()->image) }}" alt="profile"
+                                    width="120px" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;" class="img-fluid">
                                      @else
                                      <img class="profile-user-img img-fluid img-circle" src="{{ asset('assets/img/user_default.png') }}" alt="User profile picture">
                                     @endif

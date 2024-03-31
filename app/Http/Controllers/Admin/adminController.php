@@ -28,7 +28,7 @@ class adminController extends Controller
     public function create()
     {
         $levels = Level::all();
-        $cabangs = cabang::all();
+        $cabangs = Cabang::all();
         return view('pages.admin.create', compact('levels','cabangs'));
     }
 
@@ -83,8 +83,8 @@ class adminController extends Controller
      */
     public function edit(string $id)
     {
-        $levels = level::all();
-        $cabangs = cabang::all();
+        $levels = Level::all();
+        $cabangs = Cabang::all();
         $admin = User::with('level','cabang')->findOrFail($id);
         return view('pages.admin.edit', compact('levels','cabangs', 'admin'));
     }

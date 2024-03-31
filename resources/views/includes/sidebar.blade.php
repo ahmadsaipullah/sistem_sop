@@ -1,5 +1,5 @@
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary bg-danger elevation-4">
       <!-- Brand Logo -->
       <a href="{{ route('dashboard') }}" class="brand-link">
           <img src="{{ asset('assets/img/logoft.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -38,6 +38,7 @@
                     <p> Dashboard</p>
                 </a>
             </li>
+            @if (auth()->user()->level_id == 1)
             <li class="nav-header">Admin</li>
             <li class="nav-item">
                 <a href="{{ route('admin.index') }}" class="nav-link @yield('admin')">
@@ -45,16 +46,23 @@
                     <p>Admin
                     </p>
                 </a>
+            <li class="nav-header">Cabang</li>
+            <li class="nav-item">
+                <a href="{{ route('cabang.index') }}" class="nav-link @yield('cabang')">
+                    <i class="nav-icon ion ion-person-add"></i>
+                    <p>Cabang
+                    </p>
+                </a>
+                @endif
             <li class="nav-header">Jobs Description</li>
             <li class="nav-item">
-                <a href="#" class="nav-link @yield('job')">
+                <a href="{{route('job.index')}}" class="nav-link @yield('job')">
                     <i class="nav-icon ion ion-edit"></i>
                     <p>Main Jobs
                     </p>
                 </a>
-
             <li class="nav-item">
-                <a href="#" class="nav-link @yield('job')">
+                <a href="{{route('relate.index')}}" class="nav-link @yield('relate')">
                     <i class="nav-icon ion ion-document-text"></i>
                     <p>Relate Jobs
                     </p>

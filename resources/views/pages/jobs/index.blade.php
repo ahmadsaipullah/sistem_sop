@@ -38,27 +38,39 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
+                                            <th>Type</th>
                                             <th>No</th>
                                             <th>Tugas</th>
+                                            <th>Gambar/Vidio</th>
                                             <th>Detail Tugas</th>
-                                            <th>Type</th>
                                             <th>Jabatan</th>
                                             {{-- <th>File Laporan</th> --}}
-                                            <th>Cabang</th>
                                             <th>Relate</th>
+                                            <th>Cabang</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @forelse ($jobs as $job)
                                             <tr>
+                                                <td>{{ $job->type }}</td>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $job->tugas }}</td>
+                                                <td>
+                                                    @if (pathinfo($job->image, PATHINFO_EXTENSION) == 'mp4')
+                                                        <video width="320" height="240" controls>
+                                                            <source src="{{ Storage::url($job->image) }}" type="video/mp4">
+                                                            Your browser does not support the video tag.
+                                                        </video>
+                                                    @else
+                                                        <img src="{{ Storage::url($job->image) }}" alt="gambar/vidio" width="320">
+                                                    @endif
+                                                </td>
+
                                                 <td>{!! $job->detail_tugas !!}</td>
-                                                <td>{{ $job->type }}</td>
                                                 <td>{{ $job->Jabatan->level}}</td>
-                                                <td>{{ $job->Cabang->cabang}}</td>
                                                 <td>{{ $job->Relate->level }}</td>
+                                                <td>{{ $job->Cabang->cabang}}</td>
                                                 <td>
 
                                              <div class="text-center d-flex">
@@ -80,7 +92,7 @@
                                             </tr>
                                         @empty
                                         <tr>
-                                            <td colspan="8" class="text-center p-5">Data Kosong</td>
+                                            <td colspan="9" class="text-center p-5">Data Kosong</td>
                                          </tr>
                                         @endforelse
                                     </tbody>

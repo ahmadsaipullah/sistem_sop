@@ -71,6 +71,22 @@
                             </select>
                         </div>
 
+                        {{-- <div class="form-group">
+                            <label for="relate_id">Relate Jobs</label>
+                            @foreach ($levels as $level)
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="relate_id_{{ $level->id }}" name="relate_id[]" value="{{ $level->id }}[]">
+                                    <label class="form-check-label" for="relate_id_{{ $level->id }}">
+                                        {{ $level->level }}
+                                    </label>
+                                </div>
+                            @endforeach
+
+                            @error('relate_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div> --}}
+
                         <div class="form-group">
                             <label for="relate_id">Relate Jobs</label>
                             <select class="form-control" id="relate_id" name="relate_id" required>
@@ -81,6 +97,18 @@
 
                             </select>
                         </div>
+
+
+                        <div class="form-group">
+                            <label for="image">Gambar / Vidio</label>
+                            <input type="file" accept="image/*,video/*" class="form-control @error('image') is-invalid @enderror" id="image" name="image" placeholder="image" required />
+                            <p><span class="text-danger text-xs">*Hanya gambar dan video yang diperbolehkan</span></p>
+                            @error('image')
+                                <span class="text-danger"> {{ $message }}</span>
+                            @enderror
+                        </div>
+
+
 
                     </div>
                     <!-- /.card-body -->

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\Admin\{adminController,dashboardController};
 use App\Http\Controllers\cabangController;
+use App\Http\Controllers\jabatanController;
 use App\Http\Controllers\jobController;
 use App\Http\Controllers\relateController;
 
@@ -40,6 +41,8 @@ Route::middleware(['cekLevel'])->group( function(){
 Route::resource('/admin', adminController::class);
 // crud cabang
 Route::resource('cabang', cabangController::class);
+//crud jabatan
+Route::resource('/jabatan', jabatanController::class);
 
 });
 

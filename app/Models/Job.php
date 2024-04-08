@@ -12,7 +12,7 @@ class Job extends Model
     use HasFactory;
 
     protected $lable = 'jobs';
-    protected $fillable = ['tugas','detail_tugas','type','jabatan_id','relate_id','file_laporan','cabang_id'];
+    protected $fillable = ['tugas','detail_tugas','type','jabatan_id','relate_id','file_laporan','image','cabang_id'];
 
     public function Jabatan()
     {

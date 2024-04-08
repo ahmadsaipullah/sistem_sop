@@ -46,7 +46,14 @@
                     <p>Admin
                     </p>
                 </a>
-            <li class="nav-header">Cabang</li>
+
+            <li class="nav-item">
+                <a href="{{ route('jabatan.index') }}" class="nav-link @yield('jabatan')">
+                    <i class="nav-icon ion ion-person-add"></i>
+                    <p>Jabatan
+                    </p>
+                </a>
+
             <li class="nav-item">
                 <a href="{{ route('cabang.index') }}" class="nav-link @yield('cabang')">
                     <i class="nav-icon ion ion-person-add"></i>

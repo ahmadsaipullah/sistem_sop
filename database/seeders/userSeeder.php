@@ -50,7 +50,7 @@ class userSeeder extends Seeder
 
         User::Create( [
             'name' => 'Administrator',
-            'email' => 'administrator.com',
+            'email' => 'administrator@gmail.com',
             'nip' => '444444',
             'no_hp' => '087880182823',
             'level_id' => '4',
@@ -61,7 +61,7 @@ class userSeeder extends Seeder
 
         User::Create( [
             'name' => 'Kepala Bengkel',
-            'email' => 'kepalabengkel.com',
+            'email' => 'kepalabengkel@gmail.com',
             'nip' => '555555',
             'no_hp' => '087880182823',
             'level_id' => '5',

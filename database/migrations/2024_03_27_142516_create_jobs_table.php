@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('type');
             $table->unsignedBigInteger('jabatan_id'); // Foreign key to levels table
             $table->string('file_laporan')->nullable();
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('relate_id'); // Foreign key to levels table
             $table->unsignedBigInteger('cabang_id'); // Foreign key to cabangs table
             $table->timestamps();

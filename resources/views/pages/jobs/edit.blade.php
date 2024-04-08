@@ -74,6 +74,24 @@
                             </select>
                         </div>
 
+                        <div class="form-group">
+                            <label for="image">Gambar / Vidio</label>
+                            @if (pathinfo($jobs->image, PATHINFO_EXTENSION) == 'mp4')
+                            <video width="200" height="200" controls>
+                                <source src="{{ Storage::url($jobs->image) }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        @else
+                            <img src="{{ Storage::url($jobs->image) }}" alt="gambar/vidio" width="200">
+                        @endif
+                            <input type="file" accept="image/*,video/*" class="form-control @error('image') is-invalid @enderror" id="image" name="image" placeholder="image" required />
+                            <p><span class="text-danger text-xs">*Hanya gambar dan video yang diperbolehkan</span></p>
+                            @error('image')
+                                <span class="text-danger"> {{ $message }}</span>
+                            @enderror
+                        </div>
+
+
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer d-flex justify-content-end">

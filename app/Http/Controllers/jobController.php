@@ -44,34 +44,35 @@ class jobController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'tugas' => 'required|string',
-            'detail_tugas' => 'required|string',
-            'type' => 'required|string',
-            'file_laporan' => 'nullable|mimes:pdf',
-            'jabatan_id' => 'required|integer',
-            'relate_id' => 'required|integer|different:jabatan_id',
-            'cabang_id' => 'required|integer'
-        ]);
 
-        $data = $request->all();
+     public function store(Request $request)
+     {
+         $request->validate([
+             'tugas' => 'required|string',
+             'detail_tugas' => 'required|string',
+             'type' => 'required|string',
+             'jabatan_id' => 'required|integer',
+             'relate_id' => 'integer|integer',
+             'cabang_id' => 'required|integer',
+             'image' => 'nullable|mimetypes:image/jpeg,image/png,video/mp4,video/mpeg,video/quicktime', // Validasi image dan video
+         ]);
 
-        if ($request->hasFile('file_laporan')) {
-            $data['file_laporan'] = $request->file('file_laporan')->store('asset/file_laporan', 'public');
-        }
+         $data = $request->all();
 
-        $job = Job::create($data);
+         if ($request->hasFile('image')) {
+             $data['image'] = $request->file('image')->store('asset/image', 'public');
+         }
 
-        if ($job) {
-            toast('Data berhasil ditambah', 'success');
-        } else {
-            toast('Data Gagal Ditambahkan', 'error');
-        }
-        return redirect()->route('job.index');
+         $job = Job::create($data);
 
-    }
+         if ($job) {
+             toast('Data berhasil ditambah', 'success');
+         } else {
+             toast('Data Gagal Ditambahkan', 'error');
+         }
+         return redirect()->route('job.index');
+     }
+
 
     /**
      * Display the specified resource.

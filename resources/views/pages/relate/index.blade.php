@@ -56,7 +56,7 @@
                                                 <td>{{ $relate->type }}</td>
                                                 <td>{{ $relate->Jabatan->level}}</td>
                                                 <td>{{ $relate->Cabang->cabang}}</td>
-                                                <td>{{ $relate->Relate->level }}</td>
+                                                <td>{{ $job->Relate->level }}</td>
                                                 <td>
                                                     @if ($relate->file_laporan == null)
                                                     <span class="btn btn-xs btn-danger">Belum Ada File Laporan</span>
